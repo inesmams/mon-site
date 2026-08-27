@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inès Mamouni — Psychologue clinicienne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF3EA;
+    --paper-soft:#F3E6D5;
+    --card:#FFFFFF;
+    --ink:#2B2018;
+    --ink-soft:#6B5646;
+    --moss:#A94E2A;
+    --moss-dark:#833A1C;
+    --honey:#D9A441;
+    --blush:#2C6E76;
+    --line:rgba(43,32,24,0.14);
+    --radius:20px;
+    --maxw:1120px;
+    --shadow-soft:0 1px 2px rgba(43,32,24,0.05), 0 8px 24px rgba(43,32,24,0.06);
+    --shadow-lift:0 4px 10px rgba(43,32,24,0.07), 0 16px 32px rgba(43,32,24,0.10);
+    --peps:#2C6E76;
+    --peps-dark:#1F4F55;
+    --peps-soft:#E7F1F1;
+    --contact-blue:#2C4A6E;
+    --contact-blue-dark:#1B324F;
+    --focus-ring:0 0 0 3px rgba(181,84,47,0.28);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Karla',sans-serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces',serif;
+    font-weight:450;
+    letter-spacing:-0.012em;
+    color:var(--ink);
+    margin:0;
+  }
+  h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;}
+  h2{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.18;}
+  h3{font-size:1.25rem;font-weight:600;}
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Karla',sans-serif;font-weight:700;font-size:0.78rem;
+    letter-spacing:0.14em;text-transform:uppercase;color:var(--moss);
+  }
+  .eyebrow::before{content:"";width:18px;height:1px;background:var(--honey);display:inline-block;}
+
+  /* focus visibility (RGAA / WCAG) */
+  a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,.brand:focus-visible{
+    outline:2px solid var(--moss);outline-offset:2px;border-radius:6px;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,243,234,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:18px;padding-bottom:18px;
+  }
+  .brand{display:flex;flex-direction:column;line-height:1.15;cursor:pointer;}
+  .brand strong{font-family:'Fraunces',serif;font-size:1.25rem;font-weight:600;}
+  .brand span{font-size:0.72rem;color:var(--ink-soft);letter-spacing:0.05em;text-transform:uppercase;}
+  .nav-links{display:flex;align-items:center;gap:30px;}
+  .nav-links a.nav-link{
+    font-weight:600;font-size:0.95rem;color:var(--ink-soft);
+    position:relative;padding-bottom:4px;
+    transition:color .15s ease;
+  }
+  .nav-links a.nav-link:hover{color:var(--ink);}
+  .nav-links a.nav-link.active{color:var(--ink);}
+  .nav-links a.nav-link.active::after{
+    content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;
+    background:var(--honey);border-radius:2px;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Karla',sans-serif;font-weight:700;font-size:0.92rem;
+    padding:13px 24px;border-radius:100px;border:1px solid transparent;
+    cursor:pointer;transition:transform .15s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+    white-space:nowrap;
+    min-height:44px;
+  }
+  .btn-primary{background:var(--moss);color:#fff;box-shadow:var(--shadow-soft);}
+  .btn-primary:hover{background:var(--moss-dark);transform:translateY(-1px);box-shadow:var(--shadow-lift);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--moss);background:var(--paper-soft);}
+  .burger{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;}
+
+  /* ---------- SECTIONS / GENERIC ---------- */
+  section{padding:96px 0;}
+  section.tight{padding:68px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{margin-top:10px;}
+  .section-head p.lead{margin-top:14px;color:var(--ink-soft);font-size:1.1rem;font-family:'Fraunces',serif;font-style:italic;font-weight:400;}
+
+  .divider{width:100%;height:36px;display:block;}
+
+  .grid{display:grid;gap:24px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  @media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px;
+    box-shadow:var(--shadow-soft);
+  }
+
+  footer{
+    background:var(--moss-dark);color:#F7ECE0;padding:56px 0 30px;
+  }
+  footer a{color:#F7ECE0;transition:opacity .15s ease;}
+  footer a:hover{opacity:0.8;}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:36px;}
+  footer h4{font-family:'Fraunces',serif;font-weight:500;font-size:1.05rem;margin-bottom:12px;}
+  footer .col{min-width:200px;}
+  footer .col p, footer .col a{display:block;font-size:0.9rem;color:#E4C9B4;margin-bottom:8px;}
+  footer .bottom{
+    margin-top:40px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.16);
+    text-align:center;font-size:0.8rem;color:#E4C9B4;
+  }
+
+  /* ---------- PAGES ---------- */
+  .page{display:none;}
+  .page.active{display:block;}
+
+  /* HERO */
+  .hero{padding:64px 0 30px;}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;}}
+  .hero h1{margin-top:14px;}
+  .hero .lead{margin-top:20px;color:var(--ink-soft);font-size:1.12rem;max-width:520px;}
+  .hero .cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-art{position:relative;aspect-ratio:1/1;border-radius:28px;background:var(--card);border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow-lift);}
+
+  /* organic blobs used as quiet background texture */
+  .blob{position:absolute;border-radius:50%;filter:blur(0px);opacity:0.9;}
+
+  .situations .card{position:relative;transition:box-shadow .15s ease, transform .15s ease;}
+  .situations .card:hover{box-shadow:var(--shadow-lift);transform:translateY(-2px);}
+  .situations .card .num-dot{
+    width:10px;height:10px;border-radius:50%;background:var(--honey);margin-bottom:16px;
+  }
+
+  .teaser-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow-soft);
+    transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .teaser-card:hover{transform:translateY(-3px);border-color:var(--honey);box-shadow:var(--shadow-lift);}
+  .teaser-card .arrow{margin-top:auto;font-weight:700;color:var(--moss);}
+
+  /* ---------- avis Google ---------- */
+  .reviews-head{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .reviews-score{display:flex;align-items:center;gap:10px;}
+  .reviews-score .num{font-family:'Fraunces',serif;font-size:2.2rem;color:var(--ink);}
+  .reviews-stars{color:var(--honey);font-size:1.2rem;letter-spacing:2px;}
+  .reviews-count{color:var(--ink-soft);font-size:0.92rem;}
+  .review-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-soft);}
+  .review-card .review-stars{color:var(--honey);font-size:0.95rem;letter-spacing:1px;margin-bottom:10px;}
+  .review-card p{color:var(--ink-soft);font-size:0.94rem;font-style:italic;}
+  .review-card .who{margin-top:14px;font-size:0.85rem;font-weight:700;color:var(--ink);font-style:normal;}
+
+  /* timeline (expériences) */
+  .thread-list{position:relative;padding-left:28px;}
+  .thread-list::before{
+    content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;
+    background:repeating-linear-gradient(to bottom, var(--honey) 0 6px, transparent 6px 12px);
+  }
+  .thread-item{position:relative;padding-bottom:26px;}
+  .thread-item:last-child{padding-bottom:0;}
+  .thread-item::before{
+    content:"";position:absolute;left:-28px;top:4px;width:12px;height:12px;border-radius:50%;
+    background:var(--honey);border:3px solid var(--paper);
+  }
+  .thread-item h3{margin-bottom:4px;}
+  .thread-item p{color:var(--ink-soft);font-size:0.95rem;}
+
+  .chip-grid{display:flex;flex-wrap:wrap;gap:10px;}
+  .chip{
+    background:var(--paper-soft);border:1px solid var(--line);border-radius:100px;
+    padding:9px 16px;font-size:0.88rem;color:var(--ink);font-weight:600;
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .chip:hover{border-color:var(--moss);background:#fff;}
+
+  /* prise en charge service cards */
+  .service{
+    display:grid;grid-template-columns:96px 1fr auto;gap:24px;align-items:start;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:32px;margin-bottom:20px;box-shadow:var(--shadow-soft);
+  }
+  .service .thumb{
+    width:96px;height:96px;border-radius:16px;overflow:hidden;background:var(--paper-soft);flex-shrink:0;
+  }
+  .service .thumb img{width:100%;height:100%;object-fit:cover;}
+  @media(max-width:700px){.service{grid-template-columns:1fr;}.service .thumb{width:100%;height:150px;}}
+  .service .price{
+    font-family:'Fraunces',serif;font-size:1.5rem;color:var(--moss);white-space:nowrap;
+  }
+  .service .price small{display:block;font-family:'Karla',sans-serif;font-size:0.75rem;color:var(--ink-soft);font-weight:600;}
+  .service p{color:var(--ink-soft);margin-top:10px;}
+  .service .tags{margin-top:14px;}
+
+  .mutuelle-note{
+    font-size:0.88rem;color:var(--ink-soft);border-left:2px solid var(--honey);padding-left:14px;margin-top:10px;
+  }
+
+  /* livrets */
+  .livret-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;gap:10px;position:relative;box-shadow:var(--shadow-soft);
+    transition:box-shadow .15s ease, transform .15s ease;
+  }
+  .livret-card:hover{box-shadow:var(--shadow-lift);transform:translateY(-2px);}
+  .livret-cover{width:100%;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--paper-soft);margin-bottom:4px;position:relative;}
+  .livret-cover img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;opacity:0;transition:opacity .35s ease;}
+  .livret-cover img.is-active{opacity:1;}
+  .livret-cover .slide-dots{
+    position:absolute;bottom:8px;left:0;right:0;display:flex;justify-content:center;gap:5px;
+    opacity:0;transition:opacity .2s ease;pointer-events:none;
+  }
+  .livret-cover:hover .slide-dots{opacity:1;}
+  .livret-cover .slide-dots span{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.6);}
+  .livret-cover .slide-dots span.is-active{background:#fff;}
+  .badge{
+    position:absolute;top:18px;right:18px;background:var(--blush);color:#fff;
+    font-size:0.7rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;
+    padding:5px 10px;border-radius:100px;
+  }
+  .livret-card .level{font-size:0.82rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;}
+  .livret-card .price-row{margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;padding-top:8px;}
+  .livret-card .price-row .fmt{font-size:0.82rem;color:var(--ink-soft);}
+  .livret-card .price-row .amt{font-family:'Fraunces',serif;font-size:1.3rem;color:var(--moss);}
+  .livret-card .buy-btn{
+    margin-top:10px;display:block;text-align:center;background:var(--moss);color:#fff;
+    font-weight:700;font-size:0.85rem;padding:10px 14px;border-radius:100px;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .livret-card .buy-btn:hover{background:var(--moss-dark);transform:translateY(-1px);}
+
+  /* ---------- Modale de personnalisation des livrets ---------- */
+  .livret-card{cursor:pointer;}
+  .modal-overlay{
+    display:none;position:fixed;inset:0;background:rgba(30,20,15,0.55);
+    z-index:200;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-overlay.is-open{display:flex;}
+  .modal-box{
+    background:var(--card);border-radius:var(--radius);max-width:460px;width:100%;
+    max-height:90vh;overflow-y:auto;position:relative;box-shadow:var(--shadow-lift);
+  }
+  .modal-close{
+    position:absolute;top:14px;right:14px;width:32px;height:32px;border-radius:50%;
+    background:var(--paper-soft);border:none;font-size:1.2rem;line-height:1;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;color:var(--ink);z-index:2;
+  }
+  .modal-cover{width:100%;aspect-ratio:16/10;overflow:hidden;background:var(--paper-soft);border-radius:var(--radius) var(--radius) 0 0;}
+  .modal-cover img{width:100%;height:100%;object-fit:cover;}
+  .modal-content{padding:26px;}
+  .modal-content .level{font-size:0.8rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.06em;font-weight:600;}
+  .modal-content h3{margin-top:6px;margin-bottom:16px;}
+  .modal-field{margin-bottom:14px;}
+  .modal-field label{display:block;font-size:0.82rem;font-weight:700;color:var(--ink);margin-bottom:5px;}
+  .modal-field input{
+    width:100%;padding:11px 13px;border-radius:12px;border:1px solid var(--line);
+    background:var(--paper-soft);font-family:'Karla',sans-serif;font-size:0.92rem;color:var(--ink);
+  }
+  .modal-field input:focus{outline:none;border-color:var(--moss);background:#fff;}
+  .format-choice{display:flex;gap:10px;margin:16px 0;}
+  .format-btn{
+    flex:1;padding:11px 10px;border-radius:12px;border:1px solid var(--line);background:var(--paper-soft);
+    font-family:'Karla',sans-serif;font-weight:700;font-size:0.85rem;color:var(--ink-soft);cursor:pointer;
+    transition:background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .format-btn.is-active{background:var(--moss);border-color:var(--moss);color:#fff;}
+  .modal-price{font-family:'Fraunces',serif;font-size:1.6rem;color:var(--moss);margin-bottom:16px;}
+  .modal-content .btn-primary{width:100%;justify-content:center;}
+  .modal-note{font-size:0.78rem;color:var(--ink-soft);margin-top:12px;}
+
+  .order-box{
+    background:var(--moss);color:#fff;border-radius:var(--radius);padding:40px;
+    display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center;margin-top:20px;
+    box-shadow:var(--shadow-lift);
+  }
+  @media(max-width:800px){.order-box{grid-template-columns:1fr;}}
+  .order-box h3{color:#fff;}
+  .order-box p{color:#fff;margin-top:10px;}
+  .order-box .btn-primary{background:var(--honey);color:var(--ink);}
+  .order-box .btn-primary:hover{background:#C4922F;}
+  .order-box .btn-white{background:#fff;color:var(--moss-dark);}
+  .order-box .btn-white:hover{background:var(--paper-soft);}
+
+
+
+  /* contact page */
+  .contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:40px;align-items:start;}
+  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;}}
+  .info-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow-soft);}
+  .info-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);}
+  .info-row:last-child{border-bottom:none;}
+  .info-row .ic{
+    width:36px;height:36px;border-radius:50%;background:var(--paper-soft);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .info-row .ic svg{width:16px;height:16px;stroke:var(--moss);}
+  .info-row h4{font-size:0.95rem;font-weight:700;margin-bottom:2px;}
+  .info-row p{color:var(--ink-soft);font-size:0.92rem;}
+  .tarif-mini{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px dashed var(--line);font-size:0.92rem;}
+  .tarif-mini:last-child{border-bottom:none;}
+  .tarif-mini span:last-child{font-weight:700;color:var(--moss);}
+
+  form.contact-form{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-soft);}
+  .field{margin-bottom:18px;}
+  .field label{display:block;font-size:0.85rem;font-weight:700;color:var(--ink);margin-bottom:6px;}
+  .field input, .field textarea, .field select{
+    width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);
+    background:var(--paper-soft);font-family:'Karla',sans-serif;font-size:0.95rem;color:var(--ink);
+    resize:vertical;transition:border-color .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus{
+    outline:none;border-color:var(--moss);background:#fff;box-shadow:var(--focus-ring);
+  }
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media(max-width:600px){.field-row{grid-template-columns:1fr;}}
+  .form-note{font-size:0.8rem;color:var(--ink-soft);margin-top:10px;}
+
+  @media(prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;animation:none !important;}
+  }
+
+  /* ---------- CONTACT — traitement "peps" (scopé à cette page uniquement) ---------- */
+  #page-contact .hero{
+    background:radial-gradient(120% 140% at 15% 0%, var(--peps-soft) 0%, transparent 55%);
+  }
+  #page-contact .eyebrow::before{background:var(--peps);}
+  #page-contact .info-card{position:relative;overflow:hidden;}
+  #page-contact .info-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg, var(--peps) 0%, var(--contact-blue) 100%);
+  }
+  #page-contact .info-row{transition:background .15s ease;border-radius:12px;}
+  #page-contact .info-row:hover{background:var(--peps-soft);}
+  #page-contact .info-row .ic{
+    background:linear-gradient(135deg, var(--peps) 0%, var(--contact-blue) 100%);
+    transition:transform .15s ease;
+  }
+  #page-contact .info-row:hover .ic{transform:scale(1.1) rotate(-4deg);}
+  #page-contact .info-row .ic svg{stroke:#fff;}
+  #page-contact .info-row a{color:var(--contact-blue-dark);font-weight:700;}
+  #page-contact .tarif-mini span:last-child{color:var(--contact-blue-dark);}
+  #page-contact .contact-form{position:relative;overflow:hidden;}
+  #page-contact .contact-form::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg, var(--contact-blue) 0%, var(--peps) 100%);
+  }
+  #page-contact .field input:focus, #page-contact .field textarea:focus, #page-contact .field select:focus{
+    border-color:var(--peps);box-shadow:0 0 0 3px rgba(44,74,110,0.25);
+  }
+  #page-contact .contact-form .btn-primary{
+    background:linear-gradient(120deg, var(--contact-blue) 0%, var(--peps) 100%);
+    box-shadow:0 4px 14px rgba(44,74,110,0.28);
+  }
+  #page-contact .contact-form .btn-primary:hover{
+    background:linear-gradient(120deg, var(--contact-blue-dark) 0%, var(--peps-dark) 100%);
+    box-shadow:0 6px 20px rgba(27,50,79,0.35);
+    transform:translateY(-1px);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <div class="brand" onclick="go('home')">
+      <strong>Inès Mamouni</strong>
+      <span>Psychologue clinicienne</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#/" class="nav-link" data-page="home" onclick="go('home')">Accueil</a>
+      <a href="#/qui-suis-je" class="nav-link" data-page="qui-suis-je" onclick="go('qui-suis-je')">Qui suis-je</a>
+      <a href="#/prise-en-charge" class="nav-link" data-page="prise-en-charge" onclick="go('prise-en-charge')">Prise en charge</a>
+      <a href="#/livrets" class="nav-link" data-page="livrets" onclick="go('livrets')">Livrets</a>
+      <a href="#/contact" class="nav-link" data-page="contact" onclick="go('contact')">Contact</a>
+      <a class="btn btn-primary" href="https://perfactive.fr/ines-mamouni/new" target="_blank" rel="noopener">Prendre rendez-vous</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ============ PAGE : ACCUEIL ============ -->
+<main class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Psychologue clinicienne — Villejuif</span>
+        <h1>Pourquoi consulter&nbsp;un&nbsp;psychologue&nbsp;?</h1>
+        <p class="lead">Un espace pour que votre enfant soit écouté sans jugement, comprenne ce qui se joue et avance à son rythme.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://perfactive.fr/ines-mamouni/new" target="_blank" rel="noopener">Prendre rendez-vous</a>
+          <a class="btn btn-ghost" href="#/qui-suis-je" onclick="go('qui-suis-je')">Découvrir mon parcours</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="https://static.wixstatic.com/media/9aef85033e9d4dad9bdfabc31863ff29.jpg" alt="Cabinet d'Inès Mamouni" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid grid-2">
+      <div>
+        <span class="eyebrow">Le rôle du psychologue</span>
+        <h2 style="margin-top:10px;">Écouter, décrypter, accompagner le changement</h2>
+        <div style="margin-top:24px;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/5;max-width:340px;">
+          <img src="portrait-cabinet.jpg" alt="Inès Mamouni, psychologue clinicienne, dans son cabinet" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;color:var(--ink-soft);">
+        <p>La psychothérapie repose sur des entretiens où vous êtes accueilli avec bienveillance et empathie. Mon rôle est d'écouter ce qui vous fait souffrir, de mettre des mots sur ce qui a du mal à se dire, et de vous accompagner pour qu'un mouvement de changement puisse s'engager.</p>
+        <p>Chaque parcours est différent : le nombre de séances et leur fréquence s'ajustent à votre situation, pas l'inverse. Ce travail reste néanmoins collaboratif — il demande de la régularité pour porter ses fruits.</p>
+        <p>Le secret professionnel s'applique à chaque échange : rien de ce qui se dit en séance n'est partagé.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight situations">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Dans quels cas consulter</span>
+        <h2>Des situations très différentes, un même espace d'écoute</h2>
+      </div>
+      <div class="grid grid-4">
+        <div class="card"><div class="num-dot"></div><h3>Un mal-être qui s'installe</h3><p style="color:var(--ink-soft);margin-top:8px;font-size:0.95rem;">Des émotions, des comportements ou des pensées difficiles à nommer seul.</p></div>
+        <div class="card"><div class="num-dot"></div><h3>Un bilan pour votre enfant</h3><p style="color:var(--ink-soft);margin-top:8px;font-size:0.95rem;">Repérer ses forces et ses points d'appui, notamment en cas de suspicion de TSA ou de TDAH.</p></div>
+        <div class="card"><div class="num-dot"></div><h3>Un accompagnement autisme</h3><p style="color:var(--ink-soft);margin-top:8px;font-size:0.95rem;">Un travail avec l'enfant et avec les parents, sur des repères reconnus par la HAS.</p></div>
+        <div class="card"><div class="num-dot"></div><h3>Un soutien au quotidien</h3><p style="color:var(--ink-soft);margin-top:8px;font-size:0.95rem;">De la guidance parentale pour mieux comprendre et accompagner les comportements de votre enfant.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-3">
+        <a class="teaser-card" href="#/qui-suis-je" onclick="go('qui-suis-je')">
+          <span class="eyebrow">Qui suis-je</span>
+          <h3>Mon parcours et mes formations</h3>
+          <p style="color:var(--ink-soft);font-size:0.95rem;">Diplômée de psychologie clinique, formée à l'accompagnement de l'autisme et des troubles du neurodéveloppement.</p>
+          <span class="arrow">En savoir plus →</span>
+        </a>
+        <a class="teaser-card" href="#/prise-en-charge" onclick="go('prise-en-charge')">
+          <span class="eyebrow">Prise en charge</span>
+          <h3>Ce que je propose</h3>
+          <p style="color:var(--ink-soft);font-size:0.95rem;">Psychothérapie, bilans psychologiques, guidance parentale et accompagnement de l'autisme.</p>
+          <span class="arrow">Voir les tarifs →</span>
+        </a>
+        <a class="teaser-card" href="#/livrets" onclick="go('livrets')">
+          <span class="eyebrow">Livrets d'activités</span>
+          <h3>Apprendre en douceur</h3>
+          <p style="color:var(--ink-soft);font-size:0.95rem;">Des livrets conçus avec une professeure des écoles pour accompagner les tout-petits sans les mettre en échec.</p>
+          <span class="arrow">Découvrir les livrets →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="section-head reviews-head">
+        <div>
+          <span class="eyebrow">Avis Google</span>
+          <div class="reviews-score" style="margin-top:10px;">
+            <span class="num">5,0</span>
+            <span class="reviews-stars">★★★★★</span>
+            <span class="reviews-count">(22 avis)</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-3" style="margin-top:28px;">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>« Une psychologue douce, professionnelle et rassurante — ma fille a pu avancer à son rythme, en toute confiance. »</p>
+          <div class="who">Avis Google vérifié</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>« Toujours disponible et à l'écoute, avec des séances en visio bien pratiques pour continuer le suivi malgré la distance. »</p>
+          <div class="who">Avis Google vérifié</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>« Une psychologue qui connaît son métier — grâce à elle, mon fils progresse. Merci et bonne continuation ! »</p>
+          <div class="who">Avis Google vérifié</div>
+        </div>
+      </div>
+      <div style="margin-top:26px;">
+        <a class="btn btn-ghost" href="https://www.google.com/maps/place/?q=place_id:ChIJz6mu2Gpz5kcRpVkTgi_6Rbg" target="_blank" rel="noopener">Voir tous les avis sur Google →</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PAGE : QUI SUIS-JE ============ -->
+<main class="page" id="page-qui-suis-je">
+
+  <section class="hero" style="padding-bottom:10px;">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Qui suis-je</span>
+        <h1 style="margin-top:14px;">Une écoute formée, un regard clinique</h1>
+        <p class="lead">Diplômée de psychologie clinique et pathologique à l'Université Paris XIII, j'accompagne enfants et adolescents depuis plusieurs années, en cabinet comme en institution.</p>
+        <p style="margin-top:18px;font-size:0.85rem;color:var(--ink-soft);">Numéro ADELI : 779321744</p>
+      </div>
+      <div class="hero-art">
+        <img src="qui-suis-je.jpg" alt="Inès Mamouni, psychologue clinicienne, en séance de travail" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap grid grid-2">
+      <div>
+        <span class="eyebrow">Formation initiale</span>
+        <h2 style="margin-top:10px;">Master en psychologie clinique et pathologique</h2>
+        <p style="margin-top:14px;color:var(--ink-soft);">Université Paris Sorbonne Cité — Paris XIII. Mon mémoire et mes stages se sont orientés vers l'accompagnement d'enfants et d'adolescents en difficulté, notamment dans le champ du développement et des apprentissages.</p>
+      </div>
+      <div>
+        <span class="eyebrow">Formations complémentaires</span>
+        <div class="chip-grid" style="margin-top:14px;">
+          <span class="chip">TEA-Ch — évaluation de l'attention et diagnostic du TDAH</span>
+          <span class="chip">Groupes Barkley & Programme PEPS — guidance parents TDAH</span>
+          <span class="chip">Troubles du comportement et TDAH (APPEA)</span>
+          <span class="chip">Entraînement aux habiletés sociales (Formavision)</span>
+          <span class="chip">Mindmapping & stratégies d'apprentissage (BTI)</span>
+          <span class="chip">Communication alternative PECS (Pyramid-PECS France)</span>
+          <span class="chip">Éducation sexuelle, autisme et déficience intellectuelle (EDI Formation)</span>
+          <span class="chip">ACT — enfant et adolescent (Dr Mehdi Liratni)</span>
+          <span class="chip">ABA — analyse appliquée du comportement (EDI Formation)</span>
+          <span class="chip">Détection des troubles du neurodéveloppement (AMA Campus)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight" style="padding-top:20px;">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Expériences</span>
+        <h2>Un exercice partagé entre cabinet et institutions</h2>
+      </div>
+      <div class="thread-list">
+        <div class="thread-item"><h3>Cabinet libéral</h3><p>Villejuif, 94800</p></div>
+        <div class="thread-item"><h3>IME du Jeu de Paume</h3><p>Torcy, 77200</p></div>
+        <div class="thread-item"><h3>IME Les Grands Champs</h3><p>Roissy-en-Brie, 77680</p></div>
+        <div class="thread-item"><h3>Hôpital de Jour L'Élan Retrouvé</h3><p>Antony, 92160</p></div>
+        <div class="thread-item"><h3>Association Le Silence des Justes</h3><p>Paris, 75019</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap" style="text-align:center;">
+      <h2>Envie d'échanger ?</h2>
+      <p style="color:var(--ink-soft);margin-top:12px;">Le premier rendez-vous permet de poser le cadre et de voir ensemble ce qui vous conviendrait le mieux.</p>
+      <a class="btn btn-primary" style="margin-top:22px;" href="https://perfactive.fr/ines-mamouni/new" target="_blank" rel="noopener">Prendre rendez-vous</a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PAGE : PRISE EN CHARGE ============ -->
+<main class="page" id="page-prise-en-charge">
+
+  <section class="hero" style="padding-bottom:20px;">
+    <div class="wrap" style="grid-template-columns:1fr;max-width:720px;">
+      <div>
+        <span class="eyebrow">Prise en charge</span>
+        <h1 style="margin-top:14px;">Un accompagnement pensé pour chaque enfant</h1>
+        <p class="lead">Chaque prise en charge est individualisée. Voici les différents formats que je propose, avec leurs tarifs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+
+      <div class="service">
+        <div class="thumb"><img src="https://static.wixstatic.com/media/9aef85033e9d4dad9bdfabc31863ff29.jpg" alt=""></div>
+        <div>
+          <h3>Psychothérapie</h3>
+          <p>La psychothérapie est un ensemble d'entretiens durant lesquels le patient est écouté avec bienveillance et empathie. L'enjeu du psychologue est d'écouter la souffrance de son patient, de décrypter ce qui ne parvient pas à se dire et d'accompagner au mieux son patient afin qu'un processus de changement puisse s'engager. Chaque thérapie est différente et adaptée à chacun en fonction du besoin.</p>
+          <p style="margin-top:12px;">Le nombre de séances nécessaire est différent en fonction de chaque patient et de sa problématique. De même, la fréquence de chaque séance est modulable, il n'est donc pas envisageable de définir en amont un nombre de séances précis. Cependant, le patient doit avoir conscience qu'un travail sur soi nécessite un travail collaboratif et régulier.</p>
+          <p style="margin-top:12px;">Durant les séances de psychothérapie, nous aborderons différentes thématiques telles que vos comportements, vos réactions, vos ressentis, et vos émotions mais encore votre vécu et vos pensées. Le psychologue est tenu de respecter le secret professionnel, aucune des informations transmises lors de nos entretiens ne sera diffusée.</p>
+        </div>
+        <div class="price">60 €<small>par séance</small></div>
+      </div>
+
+      <div class="service">
+        <div class="thumb"><img src="bilan-psychologique.jpg" alt="Bilan psychologique"></div>
+        <div>
+          <h3>Bilan psychologique — test de QI</h3>
+          <p>Le bilan psychologique est un outil spécifique au psychologue, qui permet de comprendre le fonctionnement et dysfonctionnement de l'enfant sur le plan cognitif. Tenant compte du contexte de passation, il est pertinent et individualisé en fonction de chaque demande. Il représente une étape importante de l'évaluation de l'enfant. Il donne lieu à une analyse quantifiée (note standard et percentil) et qualitative, dont la synthèse donne lieu à des préconisations thérapeutiques.</p>
+          <p style="margin-top:12px;">Concrètement, le bilan est une série d'épreuves qui permet de mettre en lumière les forces et faiblesses de l'enfant. Nous proposons d'abord un entretien d'anamnèse permettant de retracer l'enfance du patient, son développement et ses relations lors des premiers mois de sa vie. Durant cet entretien, il est conseillé que l'enfant puisse venir avec ses deux parents ou l'un d'entre eux. Les deuxième et troisième temps sont consacrés à la passation des exercices. Enfin, un dernier temps est mis en place afin de restituer les résultats aux parents.</p>
+          <div class="tags"><span class="chip">Passation</span> <span class="chip">Cotation</span> <span class="chip">Analyse</span> <span class="chip">Compte rendu</span> <span class="chip">Restitution</span></div>
+        </div>
+        <div class="price">350 €<small>le bilan</small></div>
+      </div>
+
+      <div class="service">
+        <div class="thumb"><img src="diagnostic-tdah.jpg" alt="Diagnostic du TDAH"></div>
+        <div>
+          <h3>Diagnostic du TDAH</h3>
+          <p>Le diagnostic du TDAH s'appuie sur des questionnaires agréés, recommandés et officiels, complétés en séance. Il comprend également un recueil des informations cliniques auprès de la famille et de l'enfant, afin de mieux cerner les difficultés rencontrées au quotidien. Si besoin, une passation du TEA-Ch vient compléter l'évaluation de l'attention.</p>
+          <p style="margin-top:12px;">Le nombre de séances n'est pas figé à l'avance : il dépend du temps nécessaire à la passation et à l'analyse des questionnaires. N'hésitez pas à me contacter pour plus d'informations.</p>
+        </div>
+        <div class="price">150 €<small>à partir de</small></div>
+      </div>
+
+      <div class="service">
+        <div class="thumb"><img src="https://static.wixstatic.com/media/11062b_70aeabd182d541fda81db007df8b856c~mv2.jpg" alt=""></div>
+        <div>
+          <h3>Prise en charge de l'autisme — travail avec l'enfant</h3>
+          <p>Durant ces séances, je vous accueille ainsi que votre enfant afin de cibler les domaines à travailler (alimentation, autonomie, motricité, comportement) à travers des évaluations comportementales reconnues. En fonction de la situation je travaille sur les différentes lacunes de l'enfant.</p>
+          <p style="margin-top:12px;">La thérapie proposée aux enfants porteurs d'autisme se base sur des références reconnues par l'HAS (Haute Autorité de Santé) et sur des méthodes de communication alternative (PECS), ainsi que le programme TEACCH. Ce programme fait référence essentiellement à une organisation du temps et de l'espace pour favoriser le travail d'apprentissage. Je propose également de travailler les habiletés sociales dans le cas où votre enfant a des difficultés dans ce domaine.</p>
+          <p style="margin-top:12px;">Il est aussi possible de consulter ponctuellement pour bénéficier d'évaluation précise (Vineland-II ou EPO) afin d'établir un plan d'action individualisé dans le but d'obtenir des axes de travail précis.</p>
+        </div>
+        <div class="price">60 €<small>par séance</small></div>
+      </div>
+
+      <div class="service">
+        <div class="thumb"><img src="https://static.wixstatic.com/media/4fe6b8_f40a8824412e4a228aa2758ea0abfff7~mv2.jpg" alt=""></div>
+        <div>
+          <h3>Guidance parentale (dont TSA)</h3>
+          <p>En lien avec les particularités de votre enfant je vous soutiens dans l'établissement d'un cadre bienveillant. Les séances de guidance parentale vous seront utiles si vous avez besoin de soutien dans les tâches éducatives du quotidien. La relation avec votre enfant et la communication sont des notions clés au sein de cet accompagnement. Nous mettrons l'accent sur le sens des comportements défis de votre enfant, ainsi que la mise en place d'un plan d'action afin de les diminuer.</p>
+          <p style="margin-top:12px;">Ces séances sont également proposées dans le cadre d'une guidance parentale en fonction du besoin. Le but étant d'aider les parents à mettre en pratique des méthodes et techniques de résolution de problème à la maison. L'accompagnement des parents, voire familial, est indispensable à l'évolution de l'enfant. Les premières séances sont dédiées à l'établissement d'un état des lieux, des ressources et des difficultés rencontrées. Elles permettent ensuite de faire le point et de proposer des méthodes adaptées au contexte familial et de l'environnement de l'enfant.</p>
+        </div>
+        <div class="price">60 €<small>la séance</small></div>
+      </div>
+
+      <div class="service">
+        <div class="thumb"><img src="https://static.wixstatic.com/media/11062b_24ff09e0fd2d4c238bd046613628d14f~mv2.jpg" alt=""></div>
+        <div>
+          <h3>Vineland-II</h3>
+          <p>Test utilisé pour évaluer le niveau d'autonomie et d'adaptation afin de contribuer au diagnostic et d'apporter des éléments importants pour la mise en place de programmes éducatifs.</p>
+          <p style="margin-top:12px;">Elle consiste en un entretien semi-structuré permettant de faire le point sur les capacités du sujet. L'évaluation débute par un entretien d'anamnèse, et se poursuit par la passation du questionnaire. Celui-ci peut être complété en séance ou à domicile. Par la suite, l'analyse des données permet un compte rendu qui sera restitué au patient et/ou au(x) parent(s).</p>
+        </div>
+        <div class="price">250 €<small>le bilan</small></div>
+      </div>
+
+      <p class="mutuelle-note">* Remboursement possible par certaines mutuelles — renseignez-vous au préalable auprès de la vôtre.</p>
+
+      <div style="text-align:center;margin-top:44px;">
+        <a class="btn btn-primary" href="https://perfactive.fr/ines-mamouni/new" target="_blank" rel="noopener">Prendre rendez-vous</a>
+      </div>
+
+      <div style="text-align:center;margin-top:26px;font-size:0.85rem;color:var(--ink-soft);">
+        <a href="https://www.compsy.be/fr/le-secret-professionnel-du-psychologue-sous-la-loupe" target="_blank" rel="noopener" style="text-decoration:underline;">Le secret professionnel</a>
+        &nbsp;·&nbsp;
+        <a href="https://psychologues.org/deontologie-single/code-deontologie-psychologues/" target="_blank" rel="noopener" style="text-decoration:underline;">Code de déontologie</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PAGE : LIVRETS ============ -->
+<main class="page" id="page-livrets">
+
+  <section class="hero" style="padding-bottom:10px;">
+    <div class="wrap" style="grid-template-columns:1fr;max-width:720px;">
+      <div>
+        <span class="eyebrow">Livrets d'activités</span>
+        <h1 style="margin-top:14px;">Des livrets pensés pour apprendre en douceur</h1>
+        <p class="lead">Conçus en étroite collaboration avec une professeure des écoles pour être parfaitement conformes au programme, mes livrets offrent un cadre sécurisant : mise en page épurée, consignes simplifiées et illustrées, pour éviter la surcharge cognitive et permettre à chaque enfant d'avancer à son rythme, sans se sentir mis en échec.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="grid grid-3">
+
+        <div class="livret-card" data-pdf="4" data-plast="15" data-stripe-pdf="https://buy.stripe.com/3cIfZ9h0r71A0o1dzx4ow09" data-stripe-plast="https://buy.stripe.com/6oU4gr6lN3PoeeR9jh4ow0a" data-personalize="true">
+          <div class="livret-cover"><img src="livret-mes-premieres-formes.jpg" alt="Livret Mes premières formes, petite section"></div>
+          <span class="level">Dès 18 mois</span>
+          <h3>Mes premières formes</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">Le tout premier imagier à manipuler pour découvrir les formes géométriques, conçu spécifiquement pour les petites mains. Huit pages d'éveil et de reconnaissance pour transformer l'apprentissage en une nouvelle aventure, avec un support qui a du sens et du cœur. Disponible en PDF ou en version plastifiée.</p>
+          <div class="price-row"><span class="fmt">PDF / Plastifié</span><span class="amt">4 – 15 €</span></div>
+        </div>
+
+        <div class="livret-card" data-pdf="10" data-plast="35" data-stripe-pdf="https://buy.stripe.com/4gMeV511tgCa4Ehcvt4ow01" data-stripe-plast="https://buy.stripe.com/4gM5kv4dFgCa9YBgLJ4ow02" data-personalize="true">
+          <div class="livret-cover"><img src="livret-petite-section-niveau-1.jpg" alt="Livret petite section niveau 1"><img src="petite-section-niveau1-mockup.jpg" alt="Aperçu du livret ouvert, petite section niveau 1"></div>
+          <span class="badge" style="background:var(--blush);">Meilleure vente</span>
+          <span class="level">Petite section · Niveau 1</span>
+          <h3>30 activités ludiques</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">30 activités progressives conçues avec une professeure des écoles pour suivre fidèlement le programme de petite section. Mise en page épurée et consignes simplifiées et imagées pour éviter la surcharge cognitive et favoriser la concentration — utile aussi pour un enfant plus grand qui a besoin de consolider ses bases, sans se sentir mis en échec. Disponible en PDF ou en version plastifiée.</p>
+          <div class="price-row"><span class="fmt">PDF / Plastifié</span><span class="amt">10 – 35 €</span></div>
+          <a class="buy-btn" href="https://buy.stripe.com/4gMeV511tgCa4Ehcvt4ow01" target="_blank" rel="noopener">Acheter le PDF — 10 €</a>
+        </div>
+
+        <div class="livret-card" data-pdf="10" data-plast="35" data-stripe-pdf="https://buy.stripe.com/5kQ9AL39B1Hgc6J1QP4ow03" data-stripe-plast="https://buy.stripe.com/3cI14fcKbeu2daNfHF4ow04" data-personalize="true">
+          <div class="livret-cover"><img src="livret-petite-section-niveau-2.jpg" alt="Livret d'activités, petite section niveau 2"><img src="petite-section-niveau2-mockup.jpg" alt="Aperçu du livret ouvert, petite section niveau 2"></div>
+          <span class="level">Petite section · Niveau 2</span>
+          <h3>30 activités ludiques</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">Le prolongement du Niveau 1 : 30 nouvelles activités progressives, conçues avec une professeure des écoles pour approfondir le programme de petite section. Même mise en page épurée et consignes simplifiées et imagées, pour continuer à consolider les acquis à son rythme, sans surcharge cognitive ni sentiment d'échec. Disponible en PDF ou en version plastifiée.</p>
+          <div class="price-row"><span class="fmt">PDF / Plastifié</span><span class="amt">10 – 35 €</span></div>
+        </div>
+
+        <div class="livret-card" data-pdf="10" data-plast="25" data-stripe-pdf="https://buy.stripe.com/4gMfZ9fWn4Ts0o1dzx4ow05" data-stripe-plast="https://buy.stripe.com/bJe3cn39B5Xwb2F3YX4ow06" data-personalize="true">
+          <div class="livret-cover"><img src="livret-ecriture-des-chiffres.jpg" alt="Livret d'écriture des chiffres, moyenne section, niveau 1"><img src="apercu-numeration-moyenne-section-1.jpg" alt="Aperçu des pages plastifiées du livret de numération, moyenne section, niveau 1"></div>
+          <span class="level">Moyenne section · Niveau 1</span>
+          <h3>Écriture des chiffres</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">« Mon cahier de réussite » : plus de vingt activités conçues avec une enseignante de maternelle pour cette année charnière du langage et de la structure. 100 % conforme aux programmes scolaires, il aide votre enfant à écrire les chiffres correctement, à reconnaître leur forme et à les identifier — un support qui a du sens, pensé pour favoriser sa concentration. Disponible en PDF ou en version plastifiée.</p>
+          <div class="price-row"><span class="fmt">PDF / Plastifié</span><span class="amt">10 – 25 €</span></div>
+        </div>
+
+        <div class="livret-card" data-pdf="10" data-plast="25" data-stripe-pdf="https://buy.stripe.com/aFa4greSj71A9YB2UT4ow07" data-stripe-plast="https://buy.stripe.com/aFabIT9xZdpY5Il9jh4ow08" data-personalize="true">
+          <div class="livret-cover"><img src="livret-numeration-moyenne-section.jpg" alt="Livret de numération, moyenne section, niveau 2"><img src="moyenne-section-niveau2-mockup-v2.jpg" alt="Aperçu du livret ouvert, moyenne section niveau 2"></div>
+          <span class="level">Moyenne section · Niveau 2</span>
+          <h3>20 activités ludiques</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">La suite du cahier de numération : plus de vingt nouvelles activités pour mettre en pratique les notions apprises dans le premier livret. Conçu avec une enseignante de maternelle, 100 % conforme aux programmes scolaires, il aide votre enfant à écrire les chiffres correctement, à reconnaître leur forme et à les identifier. Disponible en PDF ou en version plastifiée.</p>
+          <div class="price-row"><span class="fmt">PDF / Plastifié</span><span class="amt">10 – 25 €</span></div>
+        </div>
+
+        <div class="livret-card" data-plast="5" data-stripe-plast="https://buy.stripe.com/6oUdR14dF1HgeeR1QP4ow0b" data-personalize="true">
+          <div class="livret-cover"><img src="jecris-mon-prenom-mockup.jpg" alt="Livret J'écris mon prénom, exemple personnalisé Soumaya"><img src="jecris-mon-prenom-noham-mockup.jpg" alt="Livret J'écris mon prénom, exemple personnalisé Noham"></div>
+          <span class="level">Écriture</span>
+          <h3>J'écris mon prénom</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">Un support complet pour apprendre à écrire et reconnaître son prénom progressivement : support rigide et plastifié, lettres à scratcher au bon endroit, et un espace dédié à l'écriture de chaque lettre — épuré et stimulant. Personnalisable au prénom de votre enfant, avec ou sans écriture cursive.</p>
+          <div class="price-row"><span class="fmt">Plastifié</span><span class="amt">5 €</span></div>
+        </div>
+
+        <div class="livret-card" data-pdf="0" data-free="true" data-personalize="false">
+          <div class="livret-cover"><img src="animaux-mockup.jpg" alt="Activités d'association : les animaux"></div>
+          <span class="badge" style="background:var(--honey);color:var(--ink);">Gratuit</span>
+          <span class="level">Ressource gratuite</span>
+          <h3>Activités d'association : les animaux</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">Format PDF, à télécharger librement.</p>
+          <div class="price-row"><span class="fmt">PDF</span><span class="amt">Gratuit</span></div>
+        </div>
+
+        <div class="livret-card" data-pdf="0" data-free="true" data-personalize="false">
+          <div class="livret-cover"><img src="autonomie-fascicule-mockup.jpg" alt="Livret d'aide à l'autonomie"></div>
+          <span class="badge" style="background:var(--honey);color:var(--ink);">Gratuit</span>
+          <span class="level">Ressource gratuite</span>
+          <h3>Livret d'aide à l'autonomie</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">Que vous soyez parent, aidant ou enseignant à la recherche de méthodes reconnues et simplifiées, ce livret vous aide à ajuster votre posture auprès de l'enfant grâce à des conseils pratiques et fiables, pour l'accompagner vers l'autonomie et la réussite.</p>
+          <div class="price-row"><span class="fmt">PDF</span><span class="amt">Gratuit</span></div>
+        </div>
+
+        <div class="livret-card" data-pdf="0" data-free="true" data-personalize="false">
+          <div class="livret-cover"><img src="jours-semaine-complet-mockup.jpg" alt="Les jours de la semaine et la ligne du temps Hier / Aujourd'hui / Demain"></div>
+          <span class="badge" style="background:var(--honey);color:var(--ink);">Gratuit</span>
+          <span class="level">Ressource gratuite</span>
+          <h3>Les jours de la semaine</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">Un petit train coloré pour mémoriser l'ordre des jours en s'amusant, accompagné d'une activité Hier / Aujourd'hui / Demain pour aider votre enfant à se repérer dans le temps — disponible en version fille et garçon. Deux notions clés du développement travaillées ensemble, avec des étiquettes à manipuler et replacer au bon endroit.</p>
+          <div class="price-row"><span class="fmt">PDF</span><span class="amt">Gratuit</span></div>
+        </div>
+
+      </div>
+
+      <p style="margin-top:22px;font-size:0.85rem;color:var(--ink-soft);">Personnalisation possible à la demande (prénom, âge) — service gratuit. Usage personnel uniquement, toute diffusion ou revente est interdite.</p>
+
+      <div class="order-box">
+        <div>
+          <h3>Comment commander ?</h3>
+          <p>Pour le moment, les commandes se font directement par message — écrivez-moi le titre du livret souhaité et le format (PDF ou plastifié), je vous réponds rapidement.</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <a class="btn btn-primary" href="mailto:inesmamouni@yahoo.fr">Commander par e-mail</a>
+          <a class="btn btn-white" href="https://www.instagram.com/ines_psychologue_enfant/" target="_blank" rel="noopener">M'écrire sur Instagram</a>
+        </div>
+      </div>
+
+      <div class="section-head reviews-head" style="margin-top:56px;">
+        <div>
+          <span class="eyebrow">Avis Google sur les livrets</span>
+          <div class="reviews-score" style="margin-top:10px;">
+            <span class="num">5,0</span>
+            <span class="reviews-stars">★★★★★</span>
+            <span class="reviews-count">(22 avis)</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-3" style="margin-top:28px;">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>« Livret génial, livraison rapide et soignée ! Mon fils de 2 ans adore, il s'amuse énormément — ça vaut vraiment le prix. »</p>
+          <div class="who">Avis Google vérifié</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>« Le livret des formes est génial, mon enfant adore coller et décoller les pièces en Velcro. Je le recommande vivement. »</p>
+          <div class="who">Avis Google vérifié</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p>« Des livrets bien pensés, à la mise en page claire et aux consignes simples, avec des visuels lisibles qui facilitent la concentration. »</p>
+          <div class="who">Avis Google vérifié</div>
+        </div>
+      </div>
+      <div style="margin-top:26px;">
+        <a class="btn btn-ghost" href="https://www.google.com/maps/place/?q=place_id:ChIJz6mu2Gpz5kcRpVkTgi_6Rbg" target="_blank" rel="noopener">Voir tous les avis sur Google →</a>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PAGE : CONTACT ============ -->
+<main class="page" id="page-contact">
+
+  <section class="hero" style="padding-bottom:10px;">
+    <div class="wrap" style="grid-template-columns:1fr;max-width:720px;">
+      <div>
+        <span class="eyebrow">Contact</span>
+        <h1 style="margin-top:14px;">Une question, une demande ?</h1>
+        <p class="lead">Pour prendre rendez-vous, je vous invite à passer directement par mon agenda en ligne. Pour toute autre question, écrivez-moi ci-dessous.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap contact-grid">
+
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <div class="info-card">
+          <div class="info-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+            <div><h4>Cabinet</h4><p>Villejuif, 94800</p></div>
+          </div>
+          <div class="info-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 4h16v16H4z" stroke="none"/><path d="M22 6 12 13 2 6"/><path d="M2 6h20v12H2z"/></svg></div>
+            <div><h4>E-mail</h4><p><a href="mailto:inesmamouni@yahoo.fr" style="text-decoration:underline;">inesmamouni@yahoo.fr</a></p></div>
+          </div>
+          <div class="info-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+            <div><h4>Rendez-vous</h4><p><a href="https://perfactive.fr/ines-mamouni/new" target="_blank" rel="noopener" style="text-decoration:underline;">Réserver un créneau en ligne</a></p></div>
+          </div>
+          <div class="info-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div>
+            <div><h4>Instagram</h4><p><a href="https://www.instagram.com/ines_psychologue_enfant/" target="_blank" rel="noopener" style="text-decoration:underline;">@ines_psychologue_enfant</a></p></div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h4 style="font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;margin-bottom:14px;">Tarifs — récapitulatif</h4>
+          <div class="tarif-mini"><span>Psychothérapie</span><span>60 €</span></div>
+          <div class="tarif-mini"><span>Bilan psychologique</span><span>350 €</span></div>
+          <div class="tarif-mini"><span>Prise en charge autisme</span><span>60 €</span></div>
+          <div class="tarif-mini"><span>Guidance parentale</span><span>60 €</span></div>
+          <div class="tarif-mini"><span>Vineland-II</span><span>250 €</span></div>
+          <p style="margin-top:14px;"><a href="#/prise-en-charge" onclick="go('prise-en-charge')" style="font-size:0.88rem;font-weight:700;color:var(--moss-dark);">Voir le détail des prises en charge →</a></p>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="cf-name">Nom</label>
+            <input type="text" id="cf-name" required>
+          </div>
+          <div class="field">
+            <label for="cf-email">E-mail</label>
+            <input type="email" id="cf-email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="cf-subject">Objet</label>
+          <select id="cf-subject">
+            <option>Prise de contact générale</option>
+            <option>Question sur une prise en charge</option>
+            <option>Commande d'un livret</option>
+            <option>Autre</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">Votre message</label>
+          <textarea id="cf-message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Envoyer le message</button>
+        <p class="form-note">En cliquant sur « Envoyer », votre logiciel de messagerie s'ouvre avec le message pré-rempli, prêt à être envoyé.</p>
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col">
+      <h4>Inès Mamouni</h4>
+      <p>Psychologue clinicienne</p>
+      <p>Cabinet libéral — Villejuif, 94800</p>
+      <p>Numéro ADELI : 779321744</p>
+    </div>
+    <div class="col">
+      <h4>Navigation</h4>
+      <a href="#/" onclick="go('home')">Accueil</a>
+      <a href="#/qui-suis-je" onclick="go('qui-suis-je')">Qui suis-je</a>
+      <a href="#/prise-en-charge" onclick="go('prise-en-charge')">Prise en charge</a>
+      <a href="#/livrets" onclick="go('livrets')">Livrets</a>
+    </div>
+    <div class="col">
+      <h4>Rendez-vous</h4>
+      <a href="https://perfactive.fr/ines-mamouni/new" target="_blank" rel="noopener">Réserver un créneau</a>
+      <a href="https://www.instagram.com/ines_psychologue_enfant/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="col">
+      <h4>Informations</h4>
+      <a href="https://www.compsy.be/fr/le-secret-professionnel-du-psychologue-sous-la-loupe" target="_blank" rel="noopener">Le secret professionnel</a>
+      <a href="https://psychologues.org/deontologie-single/code-deontologie-psychologues/" target="_blank" rel="noopener">Code de déontologie</a>
+    </div>
+  </div>
+  <div class="bottom">© Inès Mamouni — Psychologue clinicienne</div>
+</footer>
+
+<div class="modal-overlay" id="livretModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="Fermer">&times;</button>
+    <div class="modal-cover"><img id="modalImg" src="" alt=""></div>
+    <div class="modal-content">
+      <span class="level" id="modalLevel"></span>
+      <h3 id="modalTitle"></h3>
+
+      <div id="modalPersonalize">
+        <div class="modal-field">
+          <label for="modalPrenom">Prénom de l'enfant (optionnel)</label>
+          <input type="text" id="modalPrenom" placeholder="Ex : Léa">
+        </div>
+        <div class="modal-field">
+          <label for="modalAge">Âge (optionnel)</label>
+          <input type="text" id="modalAge" placeholder="Ex : 4 ans">
+        </div>
+      </div>
+
+      <div class="format-choice" id="modalFormatChoice"></div>
+      <div class="modal-price" id="modalPrice"></div>
+
+      <a class="btn btn-primary" id="modalCommand" href="#">Commander</a>
+      <p class="modal-note">Personnalisation gratuite, sur demande. Usage personnel uniquement.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const pages = ['home','qui-suis-je','prise-en-charge','livrets','contact'];
+  const hashMap = {'':'home','/':'home','/qui-suis-je':'qui-suis-je','/prise-en-charge':'prise-en-charge','/livrets':'livrets','/contact':'contact'};
+
+  function go(page){
+    pages.forEach(p=>{
+      document.getElementById('page-'+p).classList.toggle('active', p===page);
+    });
+    document.querySelectorAll('.nav-link').forEach(a=>{
+      a.classList.toggle('active', a.dataset.page===page);
+    });
+    const target = page==='home' ? '#/' : '#/'+page;
+    if(location.hash !== target) history.pushState(null,'',target);
+    window.scrollTo({top:0, behavior:'instant' in window ? 'instant':'auto'});
+    document.getElementById('navLinks').classList.remove('open');
+  }
+
+  function routeFromHash(){
+    const h = location.hash.replace('#','');
+    const page = hashMap[h] || 'home';
+    pages.forEach(p=>{
+      document.getElementById('page-'+p).classList.toggle('active', p===page);
+    });
+    document.querySelectorAll('.nav-link').forEach(a=>{
+      a.classList.toggle('active', a.dataset.page===page);
+    });
+  }
+  window.addEventListener('popstate', routeFromHash);
+  routeFromHash();
+
+  document.getElementById('burger').addEventListener('click', ()=>{
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('cf-name').value;
+    const email = document.getElementById('cf-email').value;
+    const subject = document.getElementById('cf-subject').value;
+    const message = document.getElementById('cf-message').value;
+    const body = `Nom : ${name}\nE-mail : ${email}\n\n${message}`;
+    window.location.href = `mailto:inesmamouni@yahoo.fr?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+
+  // simple responsive nav for small screens
+  const style = document.createElement('style');
+  style.textContent = `
+    @media(max-width:860px){
+      .burger{display:block;}
+      .nav-links{
+        position:fixed;top:66px;left:0;right:0;background:var(--paper);
+        flex-direction:column;align-items:flex-start;padding:20px 28px;
+        border-bottom:1px solid var(--line);
+        transform:translateY(-8px);opacity:0;pointer-events:none;transition:all .18s ease;
+      }
+      .nav-links.open{transform:translateY(0);opacity:1;pointer-events:auto;}
+      .nav-links a.btn{margin-top:6px;}
+    }
+  `;
+  document.head.appendChild(style);
+
+  // ---- diaporama au survol des couvertures de livrets ----
+  document.querySelectorAll('.livret-cover').forEach(function(cover){
+    const imgs = Array.from(cover.querySelectorAll('img'));
+    if(imgs.length === 0) return;
+    imgs[0].classList.add('is-active');
+    if(imgs.length < 2) return; // rien à faire défiler
+
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'slide-dots';
+    imgs.forEach(function(_, i){
+      const dot = document.createElement('span');
+      if(i === 0) dot.classList.add('is-active');
+      dotsWrap.appendChild(dot);
+    });
+    cover.appendChild(dotsWrap);
+    const dots = Array.from(dotsWrap.children);
+
+    let current = 0;
+    let timer = null;
+
+    function showSlide(i){
+      imgs[current].classList.remove('is-active');
+      dots[current].classList.remove('is-active');
+      current = i;
+      imgs[current].classList.add('is-active');
+      dots[current].classList.add('is-active');
+    }
+
+    cover.addEventListener('mouseenter', function(){
+      timer = setInterval(function(){
+        showSlide((current + 1) % imgs.length);
+      }, 1100);
+    });
+    cover.addEventListener('mouseleave', function(){
+      clearInterval(timer);
+      showSlide(0);
+    });
+  });
+
+  // ---- modale de personnalisation des livrets ----
+  (function(){
+    const modal = document.getElementById('livretModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalLevel = document.getElementById('modalLevel');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPersonalize = document.getElementById('modalPersonalize');
+    const modalPrenom = document.getElementById('modalPrenom');
+    const modalAge = document.getElementById('modalAge');
+    const modalFormatChoice = document.getElementById('modalFormatChoice');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalCommand = document.getElementById('modalCommand');
+    const modalClose = document.getElementById('modalClose');
+
+    function closeModal(){
+      modal.classList.remove('is-open');
+    }
+
+    function openModalForCard(card){
+      const coverImg = card.querySelector('.livret-cover img');
+      const level = card.querySelector('.level');
+      const title = card.querySelector('h3');
+      const personalize = card.dataset.personalize === 'true';
+      const free = card.dataset.free === 'true';
+
+      modalImg.src = coverImg ? coverImg.src : '';
+      modalImg.alt = coverImg ? coverImg.alt : '';
+      modalLevel.textContent = level ? level.textContent : '';
+      modalTitle.textContent = title ? title.textContent : '';
+      modalPersonalize.style.display = personalize ? '' : 'none';
+      modalPrenom.value = '';
+      modalAge.value = '';
+
+      const formats = [];
+      if(card.dataset.pdf !== undefined) formats.push({key:'pdf', label:'PDF', price:parseFloat(card.dataset.pdf), link:card.dataset.stripePdf});
+      if(card.dataset.plast !== undefined) formats.push({key:'plastifie', label:'Plastifié', price:parseFloat(card.dataset.plast), link:card.dataset.stripePlast});
+
+      let selected = formats[0];
+
+      modalFormatChoice.innerHTML = '';
+      if(formats.length > 1){
+        modalFormatChoice.style.display = 'flex';
+        formats.forEach(function(f){
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'format-btn' + (f === selected ? ' is-active' : '');
+          b.textContent = free ? f.label + ' — Gratuit' : f.label + ' — ' + f.price + ' €';
+          b.addEventListener('click', function(){
+            selected = f;
+            Array.from(modalFormatChoice.children).forEach(function(child, i){
+              child.classList.toggle('is-active', formats[i] === selected);
+            });
+            updateCommandLink();
+          });
+          modalFormatChoice.appendChild(b);
+        });
+      } else {
+        modalFormatChoice.style.display = 'none';
+      }
+
+      function updateCommandLink(){
+        modalPrice.textContent = free ? 'Gratuit' : selected.price + ' €';
+        if(selected.link){
+          modalCommand.href = selected.link;
+          modalCommand.target = '_blank';
+          modalCommand.rel = 'noopener';
+          modalCommand.textContent = 'Acheter — paiement sécurisé';
+        } else {
+          modalCommand.target = '_self';
+          modalCommand.removeAttribute('rel');
+          modalCommand.textContent = free ? 'Recevoir par e-mail' : 'Commander par e-mail';
+          const formatLabel = formats.length > 1 ? ' — format ' + selected.label : '';
+          const subject = encodeURIComponent('Commande – ' + modalTitle.textContent + formatLabel);
+          const lines = ['Bonjour,', '', 'Je souhaite commander : ' + modalTitle.textContent + formatLabel];
+          if(personalize){
+            lines.push('Prénom de l\'enfant : ' + (modalPrenom.value.trim() || '(non précisé)'));
+            lines.push('Âge : ' + (modalAge.value.trim() || '(non précisé)'));
+          }
+          lines.push('', 'Merci !');
+          const body = encodeURIComponent(lines.join('\n'));
+          modalCommand.href = 'mailto:inesmamouni@yahoo.fr?subject=' + subject + '&body=' + body;
+        }
+      }
+
+      updateCommandLink();
+      modalPrenom.oninput = updateCommandLink;
+      modalAge.oninput = updateCommandLink;
+
+      modal.classList.add('is-open');
+    }
+
+    document.querySelectorAll('.livret-card').forEach(function(card){
+      card.addEventListener('click', function(e){
+        if(e.target.closest('.buy-btn')) return;
+        openModalForCard(card);
+      });
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e){
+      if(e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeModal();
+    });
+  })();
+</script>
+
+</body>
+</html>
