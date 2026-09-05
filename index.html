@@ -266,6 +266,7 @@
 
   /* ---------- Modale de personnalisation des livrets ---------- */
   .livret-card{cursor:pointer;}
+  .livret-card.no-modal{cursor:default;}
   .modal-overlay{
     display:none;position:fixed;inset:0;background:rgba(30,20,15,0.55);
     z-index:200;align-items:center;justify-content:center;padding:20px;
@@ -779,6 +780,16 @@
           <div class="price-row"><span class="fmt">PDF</span><span class="amt">Gratuit</span></div>
         </div>
 
+        <div class="livret-card no-modal" data-free="true">
+          <div class="livret-cover"><img src="matrice-priorites-cover.jpg" alt="Ma matrice de priorités, outil d'organisation pour parents"></div>
+          <span class="badge" style="background:var(--honey);color:var(--ink);">Gratuit</span>
+          <span class="level">Ressource gratuite</span>
+          <h3>Ma matrice de priorités</h3>
+          <p style="color:var(--ink-soft);font-size:0.9rem;">Un outil d'organisation simple pour les parents : remettez chaque tâche à sa vraie place en un coup d'œil (à faire maintenant, à planifier, à déléguer, à lâcher), pour souffler un peu dans le quotidien souvent chargé avec un enfant.</p>
+          <div class="price-row"><span class="fmt">PDF</span><span class="amt">Gratuit</span></div>
+          <a class="buy-btn" href="matrice-priorites.pdf" download>Télécharger le PDF</a>
+        </div>
+
         <div class="livret-card" data-pdf="0" data-free="true" data-personalize="false">
           <div class="livret-cover"><img src="jours-semaine-complet-mockup.jpg" alt="Les jours de la semaine et la ligne du temps Hier / Aujourd'hui / Demain"></div>
           <span class="badge" style="background:var(--honey);color:var(--ink);">Gratuit</span>
@@ -1178,6 +1189,7 @@
     }
 
     document.querySelectorAll('.livret-card').forEach(function(card){
+      if(card.classList.contains('no-modal')) return;
       card.addEventListener('click', function(e){
         if(e.target.closest('.buy-btn')) return;
         openModalForCard(card);
